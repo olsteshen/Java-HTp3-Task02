@@ -1,64 +1,57 @@
 package com.example.java;
 
 public interface Shape {
-    double pi = 3.14159d;
     double getSquare(double a);
 }
 
 abstract class Round implements Shape{
-    double r;
-    public Round(double smR){
-        r=smR;
-    }
+    final static double pi = 3.14159d;
+    double radius;
+    double bigR;
     public abstract double getSquare(double r);
+}
+
+class Circle extends Round {
+    public Circle(double r) {
+        this.radius = r;
+    }
+    @Override
+    public double getSquare(double r) {
+        return pi*radius*radius;
+    }
+}
+
+class Oval extends Round {
+    public Oval(double r, double big){
+        this.radius=r;
+        this.bigR=big;
+    }
+    public double getSquare(double r) {
+        return pi*radius*bigR;
+    }
 }
 
 abstract class Rectangular implements Shape{
     double a;
     double b;
-    Rectangular(double i, double j){
-        this.a=i;
-        this.b=j;
-    }
     public abstract double getSquare(double a);
 }
 
-class Circle extends Round {
-    public Circle(double r) {
-        super(r);
-    }
-    @Override
-    public double getSquare(double r) {
-        return pi*r;
-    }
-}
-
-class Oval extends Round {
-    double bigR;
-    public Oval(double r, double big){
-        super(r);
-        this.bigR=big;
-    }
-    public double getSquare(double r) {
-        return pi*r*this.bigR;
-    }
-}
-
 class Square extends Rectangular {
-    public Square(double a, double b){
-        super(a,b);
+    public Square(double a){
+        this.a = a;
     }
-
     public double getSquare(double a){
-        return (a*this.b);
+        return (a*a);
     }
 }
 
 class Rectangle extends Rectangular {
     public Rectangle(double a, double b){
-        super(a,b);
+        this.a = a;
+        this.b = b;
     }
     public double getSquare(double a) {
-        return (a*this.b);
+        return (a*b);
     }
 }
