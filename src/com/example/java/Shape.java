@@ -1,14 +1,14 @@
 package com.example.java;
 
 public interface Shape {
-    double getSquare(double a);
+    double getSquare();
 }
 
 abstract class Round implements Shape{
     final static double pi = 3.14159d;
     double radius;
     double bigR;
-    public abstract double getSquare(double r);
+    public abstract double getSquare();
 }
 
 class Circle extends Round {
@@ -16,7 +16,7 @@ class Circle extends Round {
         this.radius = r;
     }
     @Override
-    public double getSquare(double r) {
+    public double getSquare() {
         return pi*radius*radius;
     }
 }
@@ -26,7 +26,7 @@ class Oval extends Round {
         this.radius=r;
         this.bigR=big;
     }
-    public double getSquare(double r) {
+    public double getSquare() {
         return pi*radius*bigR;
     }
 }
@@ -34,14 +34,14 @@ class Oval extends Round {
 abstract class Rectangular implements Shape{
     double a;
     double b;
-    public abstract double getSquare(double a);
+    public abstract double getSquare();
 }
 
 class Square extends Rectangular {
     public Square(double a){
         this.a = a;
     }
-    public double getSquare(double a){
+    public double getSquare(){
         return (a*a);
     }
 }
@@ -51,7 +51,7 @@ class Rectangle extends Rectangular {
         this.a = a;
         this.b = b;
     }
-    public double getSquare(double a) {
+    public double getSquare() {
         return (a*b);
     }
 }

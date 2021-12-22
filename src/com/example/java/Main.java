@@ -9,9 +9,9 @@ public class Main {
         Square square = new Square(5);
         Rectangle rectangle = new Rectangle(1,3);
 
-        System.out.println("Square of circle " + circle.getSquare(circle.radius));
-        System.out.println("Square of oval " + oval.getSquare(oval.radius));
-        System.out.println("Square of square " + square.getSquare(square.a));
-        System.out.println("Square of rectangle " + rectangle.getSquare(rectangle.a));
+        System.out.println("Square of circle " + circle.getSquare());
+        System.out.println("Square of oval " + oval.getSquare());
+        System.out.println("Square of square " + square.getSquare());
+        System.out.println("Square of rectangle " + rectangle.getSquare());
     }
 }
