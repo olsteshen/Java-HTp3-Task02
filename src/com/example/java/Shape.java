@@ -5,7 +5,7 @@ public interface Shape {
 }
 
 abstract class Round implements Shape{
-    final static double pi = 3.14159d;
+    static final double PI = 3.14159d;
     double radius;
     double bigR;
     public abstract double getSquare();
@@ -17,7 +17,7 @@ class Circle extends Round {
     }
     @Override
     public double getSquare() {
-        return pi*radius*radius;
+        return PI*radius*radius;
     }
 }
 
@@ -26,8 +26,9 @@ class Oval extends Round {
         this.radius=r;
         this.bigR=big;
     }
+    @Override
     public double getSquare() {
-        return pi*radius*bigR;
+        return PI*radius*bigR;
     }
 }
 
@@ -41,6 +42,7 @@ class Square extends Rectangular {
     public Square(double a){
         this.a = a;
     }
+    @Override
     public double getSquare(){
         return (a*a);
     }
@@ -51,6 +53,7 @@ class Rectangle extends Rectangular {
         this.a = a;
         this.b = b;
     }
+    @Override
     public double getSquare() {
         return (a*b);
     }
